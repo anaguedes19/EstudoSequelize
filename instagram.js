@@ -65,15 +65,129 @@ const {Op} = require('sequelize');
 //     console.table(resultado.map(user => user.toJSON())); 
 // });
 
-for (let i= 0; i< 6; i+=2){
-Comentario.findAll({
-    order:[
-        ['id', 'ASC']  
-    ],
-    limit: 2, 
-    offset: i
-})
-.then ((resultado) => {
-    console.table(resultado.map(user => user.toJSON())); 
-});
-}
+// for (let i= 0; i< 6; i+=2){
+// Comentario.findAll({
+//     order:[
+//         ['id', 'ASC']  
+//     ],
+//     limit: 2, 
+//     offset: i
+// })
+// .then ((resultado) => {
+//     console.table(resultado.map(user => user.toJSON())); 
+// });
+// }
+
+//Usuario
+
+// Usuario.create({
+//     nome: 'Ana Julia',
+//     email: 'anaju@digitalhouse.com',
+//     senha: 'jujuba123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+//  Usuario.create({
+//      nome: 'Brena M',
+//      email: 'nana@digitalhouse.com',
+//      senha: 'nenamaluquinha123'
+//  }).then((resultado) => {
+//      console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Mariana Rebolsas',
+//     email: 'mariana@digitalhouse.com',
+//     senha: 'maricontaai123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Bartolomeu',
+//     email: 'nat@digitalhouse.com',
+//     senha: 'bartototo123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Edson Oliveira',
+//     email: 'edson@digitalhouse.com',
+//     senha: 'somsom123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'João Victor',
+//     email: 'nat@digitalhouse.com',
+//     senha: 'gatinho123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Post.create({
+//     texto: 'testando123',
+//     usuarios_id: 6,
+//     n_likes: 100
+// }).then((resultado) => {
+// console.log(resultado.toJSON());
+// });
+
+//  Usuario.update({
+//      email: 'sergio@digitalhouse.com'
+//  }, {
+//      where: {
+//          id:2
+//      }
+// }).then((resultado) => {
+//      console.log(resultado);
+//  });
+
+//  Usuario.destroy({
+//      where: {
+//          id: 3
+//      }
+//  }).then((resultado) => {
+//      console.log(resultado);
+//  })
+
+
+// Usuario.update({
+//     senha: 'novasenha123'
+// }, {
+//     where: {
+//         id: 8
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+// Usuario.destroy({
+//     where: {
+//         id: 6
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+
+// Usuario.findAll().then((usuarios) => {
+//     console.log(usuarios.map((usuario) => usuario.toJSON()));
+// })
+
+// Usuario.findByPk(1, { include: ['posts']}).then(
+//     usuario => {
+//         console.log(usuario.toJSON());
+//         sequelize.close();
+//     }
+// )
+
+Post.findByPk(1, {include:['comentarios']}).then(
+    post => {
+        console.log(post.toJSON());
+        sequelize.close();
+    }
+)

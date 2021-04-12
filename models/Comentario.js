@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     
+    // define(nomeModel, colunas, config)
     const Comentario = sequelize.define(
         'Comentario', {
            texto: DataTypes.STRING(100),
@@ -13,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     );
+
+    Comentario.associate = (models) => {
+        Comentario.belongsTo(models.Post, { as: "post", foreignKey: "posts_id"})
+    }
 
     return Comentario;
 
